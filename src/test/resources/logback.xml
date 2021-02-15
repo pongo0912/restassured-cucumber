@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <!--            <jsonFormatter-->
+            <!--                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">-->
+            <!--                <prettyPrint>true</prettyPrint>-->
+            <!--            </jsonFormatter>-->
+            <!--            <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>-->
+        </layout>
+    </appender>
+
+    <appender name="TEST-LOG" class="ch.qos.logback.core.FileAppender">
+        <file>/tmp/test_output.log</file>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+    </appender>
+
+    <root level="info" additivity="false">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="TEST-LOG"/>
+    </root>
+</configuration>

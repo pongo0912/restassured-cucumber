@@ -1,0 +1,24 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# IDE
+
+.vscode
+.vs
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.history/
+*.code-workspace
+.cache/
+.project
+.settings
+*.iml
+
+# Java
+bin
+build
+target
+junit.xml
+coverage/
